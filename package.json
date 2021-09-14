@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "dependencies": {
+    "apollo": "^2.33.6"
+  }
+}

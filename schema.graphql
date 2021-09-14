@@ -1,0 +1,39 @@
+type User {
+  name: String!
+  id: String!
+}
+
+type Channel {
+  name: String!
+  id: String!
+  messages: [Message!]!
+}
+
+type Message {
+  id: String!
+  message: String!
+  from: User!
+  channel: Channel!
+}
+
+type Query {
+  channel(channelId: String!): Channel
+  channels: [Channel!]!
+  user(userId: String!): User
+  users: [User!]!
+  messages: [Message!]!
+}
+
+type Mutation {
+  addUser(name: String!): User
+  addChannel(name: String!): Channel
+  addMessage(message: String!, from: String!, channelId: String!): Message
+
+  removeUser(id: String!): User
+  removeChannel(id: String!): Channel
+  removeMessage(id: String!): Message
+}
+
+type Subscription {
+  message(channelId: String!): Message
+}
